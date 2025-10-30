@@ -2,9 +2,8 @@ import { Console } from "@woowacourse/mission-utils";
 import { INPUT_MESSAGE } from "../constants/message.js";
 import {
   validate1000unit,
+  validateBonusNumber,
   validateEmpty,
-  validateLottoNumber,
-  validateLottoRange,
   validatePositiveInt,
   validateSixWinningNumbers,
 } from "../features/validator.js";
@@ -26,11 +25,11 @@ export class inputView {
     const numbers = input.split(",");
     const winningNumbers = validateSixWinningNumbers(numbers); // 숫자형으로, 숫자들어간 배열 반환
 
-    return numbers;
+    return winningNumbers;
   }
 
-  async inputBonusNumber() {
+  async inputBonusNumber(winningNumbers) {
     const input = await Console.readLineAsync(INPUT_MESSAGE.BONUS_NUMBER);
-    return validateLottoNumber(input);
+    return validateBonusNumber(winningNumbers, input);
   }
 }
