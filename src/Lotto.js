@@ -1,18 +1,34 @@
+import { VALIDATION_MESSAGE } from "./constants/message.js";
+import { newError } from "./features/validator.js";
+import ValidateLottoNumber from "./validateLottoNumber.js";
+
 class Lotto {
   #numbers;
 
   constructor(numbers) {
-    this.#validate(numbers);
     this.#numbers = numbers;
+    this.#validateLottoCount(numbers);
+    this.#validateLottoNumbers(numbers);
   }
 
-  #validate(numbers) {
+  get numbers() {
+    return this.#numbers;
+  }
+
+  #validateLottoCount(numbers) {
     if (numbers.length !== 6) {
-      throw new Error("[ERROR] 로또 번호는 6개여야 합니다.");
+      newError(VALIDATION_MESSAGE.NOT_SIX_NUMBERS);
     }
   }
 
-  // TODO: 추가 기능 구현
+  #validateLottoNumbers(numbers) {
+    const seen = [];
+    numbers.forEach((number, i) => {
+      const validatedNum = new ValidateLottoNumber(seen, number);
+      this.#numbers[i] = validatedNum.number;
+      seen.push(number);
+    });
+  }
 }
 
 export default Lotto;
