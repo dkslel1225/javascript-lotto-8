@@ -1,5 +1,6 @@
-import { VALIDATION_MESSAGE } from "./constants/message.js";
-import { newError, validatePositiveInt } from "./features/validator.js";
+import { VALIDATION_MESSAGE } from "../constants/message.js";
+import { newError } from "../utils/newError.js";
+import { validatePositiveInt } from "../utils/validatePositiveInt.js";
 
 class ValidateLottoNumber {
   #number;
@@ -30,7 +31,7 @@ class ValidateLottoNumber {
 
   // 3. 중복되는가
   #validateLottoDuplicated(numbers, number) {
-    const duplicated = numbers.includes(number); // 두 비교 대상자의 타입이 같지 않으면 에러 남(includes is not a function)
+    const duplicated = numbers.includes(number);
     if (duplicated) {
       newError(VALIDATION_MESSAGE.DUPLICATE);
     }

@@ -1,6 +1,6 @@
 import { VALIDATION_MESSAGE } from "./constants/message.js";
-import { newError } from "./features/validator.js";
-import ValidateLottoNumber from "./validateLottoNumber.js";
+import ValidateLottoNumber from "./features/ValidateLottoNumber.js";
+import { newError } from "./utils/newError.js";
 
 class Lotto {
   #numbers;

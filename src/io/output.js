@@ -1,7 +1,7 @@
 import { Console } from "@woowacourse/mission-utils";
 import { OUTPUT_MESSAGE } from "../constants/message.js";
 
-export class outputView {
+export class output {
   printTryNum(tryNum) {
     Console.print(`\n${tryNum}${OUTPUT_MESSAGE.PURCHASE}`);
   }

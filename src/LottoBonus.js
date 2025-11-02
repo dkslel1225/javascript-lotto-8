@@ -1,4 +1,4 @@
-import ValidateLottoNumber from "./validateLottoNumber.js";
+import ValidateLottoNumber from "./features/ValidateLottoNumber";
 
 class LottoBonus {
   #number;
