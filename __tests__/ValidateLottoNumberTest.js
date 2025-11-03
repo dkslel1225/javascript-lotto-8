@@ -1,6 +1,6 @@
 import ValidateLottoNumber from "../src/features/ValidateLottoNumber";
 
-describe("로또 클래스 테스트", () => {
+describe("로또 번호 유효성 검증 테스트", () => {
   test("정상 기능 동작 테스트.", () => {
     const validatedNumber = new ValidateLottoNumber([1, 2, 3, 4, 5], 6);
     expect(validatedNumber.number).toBe(6);
